@@ -14,6 +14,9 @@ Hate speech encompasses expressions and behaviors that promote hatred, discrimin
 
 Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
 
+### 🔠 Keywords
+*Bidirectional Encoder Representations from Transformers; Hate Speech; Multilabel Classification; Social Media; Tagalog; Polytechnic University of the Philippines; Bachelor of Science in Computer Science*
+
 ### 💻 Languages and Technologies
 
 #### Model
@@ -34,10 +37,6 @@ Bidirectional Encoder Representations from Transformers (BERT) is pre-trained de
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://en.wikipedia.org/wiki/JavaScript)
 [![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/3.0.x/)
 
-
-### 🔠 Keywords
-*Bidirectional Encoder Representations from Transformers; Hate Speech; Multilabel Classification; Social Media; Tagalog; Polytechnic University of the Philippines; Bachelor of Science in Computer Science*
-
 ### 🖼 Screenshots
 
 <p align="center">
@@ -47,7 +46,7 @@ Bidirectional Encoder Representations from Transformers (BERT) is pre-trained de
 </p>
 
 
-## 🎨 Labels
+### 🎨 Labels
 
 **Multilabel Classification** refers to the task of assigning one or more relevant labels to each text. Each text can be associated with multiple categories simultaneously, such as Age, Gender, Physical, Race, Religion, or Others.
 
@@ -60,7 +59,7 @@ Bidirectional Encoder Representations from Transformers (BERT) is pre-trained de
 | ![Religion](https://img.shields.io/badge/Religion-424BFC)   | Target of hate speech pertains to affiliation, belief, and faith to any of the existing religious or non-religious groups |
 | ![Others](https://img.shields.io/badge/Others-65696C)   | Target of hate speech pertains other topic that is not relevant as Age, Gender, Physical, Race, or Religion |
 
-## 📜 Dataset
+### 📜 Dataset
 2,116 scraped social media posts from Facebook, Reddit, and Twitter manually annotated for determining labels for each data split into three sets: 
 
 | Dataset        | Number of Posts | Percentage |
@@ -69,7 +68,7 @@ Bidirectional Encoder Representations from Transformers (BERT) is pre-trained de
 | Validation Set | 212             | 10%        |
 | Testing Set    | 633             | 30%        |
 
-## 🔢 Results
+### 🔢 Results
 
 The testing set containing 633 annotated hate speech data used to analyze performance of the model in its ability to classify the hate speech input according to different label in terms of Precision, Recall, F-Measure, and overall hamming loss.
 
@@ -84,11 +83,12 @@ The testing set containing 633 annotated hate speech data used to analyze perfor
 
 Overall Hamming Loss: 3.79%
 
+## 🛠️ Installation
 
 ### 📦 Clone with git-lfs
 Since this repo contains large data files (>= 50MB), you need to first download and install a git plugin called git-lfs for versioning large files, and set up Git LFS using command git lfs install in console, in order to fully clone this repo.
 
-### 🛠️ How to run 
+### 🏃 How to run 
 
 #### Setup model
 
