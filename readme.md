@@ -1,18 +1,21 @@
 # Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)
 
+This repository contains source files for the thesis titled, **Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)**, at the Polytechnic University of the Philippines. The model classifies a hate speech according to one or more categories: Age, Gender, Physical, Race, Religion, and Others. 
+
+Hate speech encompasses expressions and behaviors that promote hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, with consequences ranging from physical harm to psychological distress, making it a critical issue in today's society. 
+
+Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
+
 ## 👥 Proponents
 - Saya-ang, Kenth G. (@syke9p3)
 - Gozum, Denise Julianne S. (@Xenoxianne)
 - Hamor, Mary Grizelle D. (@mnemoria)
 - Mabansag, Ria Karen B. (@riavx)
 
-## 📋 Description
+## 📋 About the Thesis
 
-This repository contains source files for the thesis titled, **Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)**, at the Polytechnic University of the Philippines. The model classifies a hate speech according to one or more categories: Age, Gender, Physical, Race, Religion, and Others. 
-
-Hate speech encompasses expressions and behaviors that promote hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, with consequences ranging from physical harm to psychological distress, making it a critical issue in today's society. 
-
-Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
+### 📄 Abstract
+Hate speech encompasses expressions and behaviors that promote hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, with consequences ranging from physical harm to psychological distress, making it a critical issue in today's society. This study addresses the prevalence of hate speech on social media platforms by proposing a Tagalog hate speech classification model for efficient content moderation. Utilizing a fine-tuned Bidirectional Encoder Representations from Transformers (BERT), the study classifies hate speech based on categories such as Age, Gender, Physical, Race, Religion, and Others. The research draws from a dataset of 2,116 scraped social media posts from platforms like Facebook, Reddit, and Twitter manually annotated for analysis. Findings indicate that the model achieved a 97.12% precision, 90.18% recall, 93.52% f-measure for Age, 93.23% precision, 94.66% recall, 93.94% f-measure for Gender, 92.23% precision, 71.43% recall, 80.51% f-measure for Physical, 90.99% precision, 88.60% recall, 89.78% f-measure for Race, 99.03% precision, 94.44% recall, 96.68% f-measure for Religion, and 83.74% precision, 85.12% recall, 84.43% f-measure for Others, as well as an overall hamming loss score of 3.79%, indicating that the tool effectively classified hate posts with a high degree of accuracy in accordance with their respective labels.
 
 ### 🔠 Keywords
 *Bidirectional Encoder Representations from Transformers; Hate Speech; Multilabel Classification; Social Media; Tagalog; Polytechnic University of the Philippines; Bachelor of Science in Computer Science*
