@@ -1,27 +1,72 @@
 # Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)
 
-### Clone with git-lfs
+### 📦 Clone with git-lfs
 Since this repo contains large data files (>= 50MB), you need to first download and install a git plugin called git-lfs for versioning large files, and set up Git LFS using command git lfs install in console, in order to fully clone this repo.
 
-<!--
-### How to run 
+### 💻 Languages and Technologies
 
-Follow the following steps:
+#### Model
 
-1. Clone this repository to your local machine
-1. Open *./index.html* in the browser
-2. In the terminal, type: ```py ./server.py``` 
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://huggingface.co/)
+[![Numpy](https://img.shields.io/badge/Numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://huggingface.co/)
+[![Numpy](https://img.shields.io/badge/ScikitLearn-F7931E?style=for-the-badge&logo=numpy&logoColor=white)](https://huggingface.co/)
 
--->
+
+#### User Interface
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://en.wikipedia.org/wiki/HTML5)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://en.wikipedia.org/wiki/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://en.wikipedia.org/wiki/JavaScript)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/3.0.x/)
 
 
-## Proponents
+### 🛠️ How to run 
+
+#### Setup model
+
+- Clone the repository:
+```
+git clone https://github.com/kenth9p3/mlthsc-thesis.git
+```
+- Create a virtual environment:
+```
+python -m venv venv
+```
+- Activate virtual environment:
+```
+source venv/Scripts/activate
+```
+- Install dependencies:
+```
+pip install -r requirements.txt
+```
+- Run app:
+```
+python ./server.py
+```
+
+#### Setup user interface
+
+- Run `index.html` in the browser
+
+- Input Tagalog hate speech in text box or choose one of the examples
+
+- Click Analyze
+
+- Save results
+
+
+## 👥 Proponents
 - Saya-ang, Kenth G. (@syke9p3)
 - Gozum, Denise Julianne S. (@Xenoxianne)
 - Hamor, Mary Grizelle D. (@mnemoria)
 - Mabansag, Ria Karen B. (@riavx)
 
-## Description
+## 📋 Description
 
 This repository contains source files for the thesis titled, **Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)**, at the Polytechnic University of the Philippines. The model classifies a hate speech according to one or more categories: Age, Gender, Physical, Race, Religion, and Others. 
 
@@ -29,19 +74,19 @@ Hate speech encompasses expressions and behaviors that promote hatred, discrimin
 
 Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
 
-### Keywords
+### 🔠 Keywords
 *Bidirectional Encoder Representations from Transformers; Hate Speech; Multilabel Classification; Social Media; Tagalog; Polytechnic University of the Philippines; Bachelor of Science in Computer Science*
 
-### Screenshots
+### 🖼 Screenshots
 
 <p align="center">
-  <img src="https://github.com/syke9p3/BERT-MLTHSC/blob/53f323953aba4dc6dc70e34e7eec3f29acbc3e02/Screenshot1.jpg"/>
-  <img src="https://github.com/syke9p3/BERT-MLTHSC/blob/53f323953aba4dc6dc70e34e7eec3f29acbc3e02/Screenshot2.jpg"/>
-  <img src="https://github.com/syke9p3/BERT-MLTHSC/blob/53f323953aba4dc6dc70e34e7eec3f29acbc3e02/Screenshot3.jpg"/>
+  <img src="./Screenshot1.jpg"/>
+  <img src="./Screenshot2.jpg"/>
+  <img src="./Screenshot3.jpg"/>
 </p>
 
 
-## Labels
+## 🎨 Labels
 
 **Multilabel Classification** refers to the task of assigning one or more relevant labels to each text. Each text can be associated with multiple categories simultaneously, such as Age, Gender, Physical, Race, Religion, or Others.
 
@@ -54,7 +99,7 @@ Bidirectional Encoder Representations from Transformers (BERT) is pre-trained de
 | ![Religion](https://img.shields.io/badge/Religion-424BFC)   | Target of hate speech pertains to affiliation, belief, and faith to any of the existing religious or non-religious groups |
 | ![Others](https://img.shields.io/badge/Others-65696C)   | Target of hate speech pertains other topic that is not relevant as Age, Gender, Physical, Race, or Religion |
 
-## Dataset
+## 📜 Dataset
 2,116 scraped social media posts from Facebook, Reddit, and Twitter manually annotated for determining labels for each data split into three sets: 
 
 | Dataset        | Number of Posts | Percentage |
@@ -63,7 +108,7 @@ Bidirectional Encoder Representations from Transformers (BERT) is pre-trained de
 | Validation Set | 212             | 10%        |
 | Testing Set    | 633             | 30%        |
 
-## Results
+## 🔢 Results
 
 The testing set containing 633 annotated hate speech data used to analyze performance of the model in its ability to classify the hate speech input according to different label in terms of Precision, Recall, F-Measure, and overall hamming loss.
 
