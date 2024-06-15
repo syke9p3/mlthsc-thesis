@@ -1,7 +1,18 @@
 # Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)
 
-### 📦 Clone with git-lfs
-Since this repo contains large data files (>= 50MB), you need to first download and install a git plugin called git-lfs for versioning large files, and set up Git LFS using command git lfs install in console, in order to fully clone this repo.
+## 👥 Proponents
+- Saya-ang, Kenth G. (@syke9p3)
+- Gozum, Denise Julianne S. (@Xenoxianne)
+- Hamor, Mary Grizelle D. (@mnemoria)
+- Mabansag, Ria Karen B. (@riavx)
+
+## 📋 Description
+
+This repository contains source files for the thesis titled, **Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)**, at the Polytechnic University of the Philippines. The model classifies a hate speech according to one or more categories: Age, Gender, Physical, Race, Religion, and Others. 
+
+Hate speech encompasses expressions and behaviors that promote hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, with consequences ranging from physical harm to psychological distress, making it a critical issue in today's society. 
+
+Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
 
 ### 💻 Languages and Technologies
 
@@ -23,56 +34,6 @@ Since this repo contains large data files (>= 50MB), you need to first download 
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://en.wikipedia.org/wiki/JavaScript)
 [![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/3.0.x/)
 
-
-### 🛠️ How to run 
-
-#### Setup model
-
-- Clone the repository:
-```
-git clone https://github.com/kenth9p3/mlthsc-thesis.git
-```
-- Create a virtual environment:
-```
-python -m venv venv
-```
-- Activate virtual environment:
-```
-source venv/Scripts/activate
-```
-- Install dependencies:
-```
-pip install -r requirements.txt
-```
-- Run app:
-```
-python ./server.py
-```
-
-#### Setup user interface
-
-- Run `index.html` in the browser
-
-- Input Tagalog hate speech in text box or choose one of the examples
-
-- Click Analyze
-
-- Save results
-
-
-## 👥 Proponents
-- Saya-ang, Kenth G. (@syke9p3)
-- Gozum, Denise Julianne S. (@Xenoxianne)
-- Hamor, Mary Grizelle D. (@mnemoria)
-- Mabansag, Ria Karen B. (@riavx)
-
-## 📋 Description
-
-This repository contains source files for the thesis titled, **Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)**, at the Polytechnic University of the Philippines. The model classifies a hate speech according to one or more categories: Age, Gender, Physical, Race, Religion, and Others. 
-
-Hate speech encompasses expressions and behaviors that promote hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, with consequences ranging from physical harm to psychological distress, making it a critical issue in today's society. 
-
-Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
 
 ### 🔠 Keywords
 *Bidirectional Encoder Representations from Transformers; Hate Speech; Multilabel Classification; Social Media; Tagalog; Polytechnic University of the Philippines; Bachelor of Science in Computer Science*
@@ -122,3 +83,43 @@ The testing set containing 633 annotated hate speech data used to analyze perfor
 | Others   | 83.74%    | 85.12% | 84.43%    |
 
 Overall Hamming Loss: 3.79%
+
+
+### 📦 Clone with git-lfs
+Since this repo contains large data files (>= 50MB), you need to first download and install a git plugin called git-lfs for versioning large files, and set up Git LFS using command git lfs install in console, in order to fully clone this repo.
+
+### 🛠️ How to run 
+
+#### Setup model
+
+- Clone the repository:
+```
+git clone https://github.com/kenth9p3/mlthsc-thesis.git
+```
+- Create a virtual environment:
+```
+python -m venv venv
+```
+- Activate virtual environment:
+```
+source venv/Scripts/activate
+```
+- Install dependencies:
+```
+pip install -r requirements.txt
+```
+- Run app:
+```
+python ./server.py
+```
+
+#### Setup user interface
+
+- Run `index.html` in the browser
+
+- Input Tagalog hate speech in text box or choose one of the examples
+
+- Click Analyze
+
+- Save results
+
