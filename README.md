@@ -7,10 +7,10 @@ Hate speech encompasses expressions and behaviors that promote hatred, discrimin
 Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
 
 ## 👥 Proponents
-- Saya-ang, Kenth G. (@syke9p3)
-- Gozum, Denise Julianne S. (@Xenoxianne)
-- Hamor, Mary Grizelle D. (@mnemoria)
-- Mabansag, Ria Karen B. (@riavx)
+- Saya-ang, Kenth G. ([@syke9p3](https://github.com/syke9p3))
+- Gozum, Denise Julianne S. ([@Xenoxianne](https://github.com/Xenoxianne))
+- Hamor, Mary Grizelle D. ([@mnemoria](https://github.com/mnemoria))
+- Mabansag, Ria Karen B. ([@riavx](https://github.com/riavx))
 
 ## 📋 About the Thesis
 
