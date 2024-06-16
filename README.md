@@ -101,11 +101,19 @@ git clone https://github.com/kenth9p3/mlthsc-thesis.git
 ```
 - Create a virtual environment:
 ```
+# Windows
 python -m venv venv
+
+# Linux
+python3 -m venv venv
 ```
 - Activate virtual environment:
 ```
+# Windows
 source venv/Scripts/activate
+
+# Linux
+source venv/bin/activate
 ```
 - Install dependencies:
 ```
