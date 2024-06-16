@@ -30,6 +30,23 @@ def get_labels():
 
     return jsonify(data)
 
+
+@app.route("/labels", methods=['POST'])
+def post_labels():
+
+    # axios.post('http://localhost:8080/labels'{ input: inputText }), 
+    
+    input_text = request.json.get('input', '')
+
+    labels = MLTHSC.get_predictions(input_text)
+
+    data = {
+        "text": input_text,
+        "labels": labels
+    }
+
+    return jsonify(data)
+
 """
 
     Example output:
