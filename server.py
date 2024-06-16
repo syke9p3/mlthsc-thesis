@@ -11,13 +11,14 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def hello_world():
-    return send_file('index.html')
+    return "Hello, World!"
 
 @app.route("/labels", methods=['GET'])
 def get_labels():
 
-    # http://127.0.0.1:5000/labels?input=di%20na%20natauhan%20tong%20mga%20animal%20na%20bakla
+    # http://127.0.0.1:8080/labels?input=di%20na%20natauhan%20tong%20mga%20animal%20na%20bakla
 
+    
     input_text = request.args.get('input', '')
 
     labels = MLTHSC.get_predictions(input_text)
@@ -29,6 +30,49 @@ def get_labels():
 
     return jsonify(data)
 
+"""
+
+    Example output:
+
+    {
+  "labels": [
+    {
+      "name": "Gender",
+      "probability": "99.39%"
+    },
+    {
+      "name": "Physical",
+      "probability": "3.53%"
+    },
+    {
+      "name": "Race",
+      "probability": "3.45%"
+    },
+    {
+      "name": "Religion",
+      "probability": "0.59%"
+    },
+    {
+      "name": "Others",
+      "probability": "0.53%"
+    },
+    {
+      "name": "Age",
+      "probability": "0.48%"
+    }
+  ],
+  "text": "di na natauhan tong mga animal na bakla"
+}
+
+ """
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0',port=8080, debug=True)
+
+
+
+
+    
 
 # @app.route('/upload', methods=['POST'])
 # def upload():
@@ -80,5 +124,3 @@ def get_labels():
 #         print('Error:', str(e))
 #         return jsonify({"error": "Internal Server Error"}), 500
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=8080, debug=True)
