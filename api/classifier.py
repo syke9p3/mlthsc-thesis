@@ -3,6 +3,8 @@ import torch
 import torch.nn as nn
 from transformers import BertTokenizer, BertModel
 
+
+# TODO: save the tokenizer
 tokenizer = BertTokenizer.from_pretrained('gklmip/bert-tagalog-base-uncased')
 model_name = "gklmip/bert-tagalog-base-uncased"
 LABELS = ['Age', 'Gender', 'Physical', 'Race', 'Religion', 'Others']
