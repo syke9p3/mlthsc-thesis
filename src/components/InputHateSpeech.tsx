@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Container from "./Container";
 import { useState } from "react";
 import { useMutation } from "react-query";
@@ -6,7 +6,7 @@ import { TbListTree } from "react-icons/tb";
 import { twMerge } from "tailwind-merge";
 import { CgSpinner } from "react-icons/cg";
 import OutputLabels from "./OutputLabels";
-
+import toast, { Toaster } from "react-hot-toast";
 
 const examples = [
     { id: 'example1', text: 'Ang mga bakla parang tanga lang' },
@@ -34,19 +34,14 @@ interface Results {
     text?: string;
 }
 
-const HateSpeechTextArea = () => {
+const InputHateSpeech = () => {
 
-    const [results, setResults] = useState<Results>({});
+    const [results, setResults] = useState<Results>();
+    const [error, setError] = useState('');
     const [inputText, setInputText] = useState('');
     const [isValidInput, setIsValidInput] = useState(false);
+    const [prevInputText, setPrevInputText] = useState('');
     const [wordCount, setWordCount] = useState(0);
-
-    const mutation = useMutation(fetchLabels, {
-        onSuccess: (data) => {
-            console.log('labels:', data);
-            setResults(data);
-        }
-    })
 
     const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLSelectElement>) => {
 
@@ -56,15 +51,45 @@ const HateSpeechTextArea = () => {
         const wordCount = getWordCount(value);
         setWordCount(wordCount);
         setIsValidInput(wordCount >= 3 && wordCount <= 280);
+
     };
+
+    const mutation = useMutation(fetchLabels, {
+        onSuccess: (data) => {
+            console.log('labels:', data);
+            setResults(data);
+
+            const prevInput = inputText;
+            setPrevInputText(prevInput);
+            toast.success('Hate speech classified successfully!');
+
+        },
+        onMutate: () => {
+            setError('');
+        },
+        onError: (error: AxiosError) => {
+            console.log('error:', error.message);
+            setError(error.message)
+            toast.error(error.message);
+        }
+    })
+
 
     const handleSubmitInput = () => {
         mutation.mutate(inputText)
     }
 
+    const isButtonDisabled = (!isValidInput || mutation.isLoading) || (inputText === prevInputText);
+    const isButtonActive = (isValidInput && !mutation.isLoading);
+    const isButtonHoverable = (isValidInput && !mutation.isLoading);
+
+    console.log('inputText:', inputText);
+    console.log('prevInputText:', prevInputText);
+
+
     return (
-        <section className="py-6 px-2 ">
-            <Container className="">
+        <section className="py-6 px-2 flex justify-center">
+            <div>
                 <div className="px-6 py-3 border-2 border-dashed">
                     <h1 className="mt-1 mb-3 text-center font-bold text-xl">Input Hate Speech Post</h1>
                     <div className="relative border">
@@ -85,46 +110,65 @@ const HateSpeechTextArea = () => {
                             </select>
                             <h3 className={twMerge("text-sm pointer-events-none order-2 text-right", `${isValidInput || wordCount === 0 ? 'text-teal-500' : 'text-red-500'}`)}>
 
-
                                 {
                                     wordCount === 0 ? (<span>Minimum <b>3</b> words</span>) : `${wordCount} / 280 words`
                                 }
-
-
 
                             </h3>
                         </div>
                     </div>
                     <div className="">
-                        <button disabled={!isValidInput}
-                            className={`${isValidInput ? 'opacity-100' : 'opacity-20'}  animate w-full my-3`}
+                        <button disabled={isButtonDisabled}
+                            className={`${isButtonActive ? 'opacity-100' : 'opacity-20'}  animate w-full my-3`}
                             onClick={handleSubmitInput}
                         >
                             <span
-                                className={twMerge("text-sm px-6 py-4 bg-[#22242B] grid place-items-center text-white rounded-md items-center gap-2 transition-all duration-100 ease-in-out",
-                                    `${isValidInput || mutation.isLoading ? 'hover:bg-teal-500' : ''}`)
+                                className={twMerge("font-mono text-sm px-6 py-4 bg-[#22242B] grid place-items-center text-white rounded-md items-center gap-2 transition-all duration-100 ease-in-out",
+                                    `${isButtonHoverable ? 'hover:bg-teal-500' : ''}`)
                                 }>
 
-                                {!mutation.isLoading ? (
-                                    <div className="flex gap-1 items-center">
-                                        <TbListTree />
-                                        Classify
-                                    </div>) :
-                                    <div className="flex gap-1 items-center">
-                                        <CgSpinner className="animate-spin" />
-                                        Classifying...
-                                    </div>
+                                {
+
+                                    !mutation.isLoading ? (
+                                        <div className="flex gap-1 items-center">
+                                            <TbListTree />
+                                            Classify
+                                        </div>) :
+                                        (<div className="flex gap-1 items-center">
+                                            <CgSpinner className="animate-spin" />
+                                            Classifying...
+                                        </div>)
+
                                 }
                             </span>
                         </button>
                     </div>
-                    <OutputLabels labels={results.labels} text={results.text} />
+
                 </div>
-            </Container>
+            </div>
+            <div>
+
+                {error &&
+                    <Toaster position="bottom-right" />
+                }
+                <div className="max-w-lg">
+                    <OutputLabels labels={results?.labels} text={results?.text} />
+                    <Toaster position="bottom-right" toastOptions={{
+                        className: 'bg-teal-500 text-white',
+                        success: {
+                            iconTheme: {
+                                primary: '#FFFFFF',
+                                secondary: '#2DD4BF',
+                            },
+                        }
+                    }} />
+                </div>
+            </div>
+
         </section>
 
     );
 }
 
-export default HateSpeechTextArea
+export default InputHateSpeech
 
