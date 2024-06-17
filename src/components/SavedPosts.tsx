@@ -11,7 +11,6 @@ const SavedPosts = () => {
         try {
             const savedPosts = localStorage.getItem('savedPosts')
             if (savedPosts) {
-                // Set the saved posts to the state
                 setPosts(JSON.parse(savedPosts))
             }
         } catch (error) {
@@ -25,18 +24,23 @@ const SavedPosts = () => {
             <Container>
                 <div className="m-2 overflow-hidden rounded-xl border border-gray-300">
                     <div className="bg-[#22242B] py-4 px-6 flex justify-between">
-                        <button>
-                            <h1 className="uppercase text-[#FAFFFF] font-bold">Saved Posts</h1>
-                        </button>
-                        <button onClick={() => setPosts((prevPost) => !prevPost)} className="bg-[#22242B] text-[#FAFFFF] px-2 py-1 rounded-lg">
+                        <h1 className="uppercase text-[#FAFFFF] font-bold">Saved Posts</h1>
+
+                        <button
+                            // onClick={() => setPosts((prevPost) => !prevPost)}
+                            className="bg-[#22242B] text-[#FAFFFF] px-2 py-1 rounded-lg">
                             <BsThreeDots />
+                            <div className="text-left">
+                                <h1 className="text-[#FAFFFF] font-bold text-xs">(save all)</h1>
+                                <h1 className="text-[#FAFFFF] font-bold text-xs">(clear history)</h1>
+                            </div>
                         </button>
                     </div>
                     <div className="py-4 px-6">
                         {posts && (
                             <div className="mb-6">
                                 <div className="flex justify-between items-center mb-2">
-                                    <h1 className="text-lg font-bold">Post 1</h1>
+                                    <h1 className="text-lg font-bold">Post 1 (ID, date)</h1>
                                     <button className="text-[#22242B] px-2 py-1 rounded-lg">
                                         <BsThreeDots />
                                     </button>
