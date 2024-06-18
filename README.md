@@ -84,7 +84,9 @@ The testing set containing 633 annotated hate speech data used to analyze perfor
 | Religion | 99.03%    | 94.44% | 96.68%    |
 | Others   | 83.74%    | 85.12% | 84.43%    |
 
-Overall Hamming Loss: 3.79%
+
+| **Overall Hamming Loss** | **3.79%** |
+ ----------------------------------------
 
 ## 🛠️ Installation
 
