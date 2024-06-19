@@ -8,7 +8,7 @@ interface ContainerProps {
 
 const Container = ({ children, className }: ContainerProps) => {
     return (
-        <div className={twMerge('container mx-auto max-w-[900px]', className)}>{children}</div>
+        <div className={twMerge('container mx-auto max-w-[1200px]', className)}>{children}</div>
     )
 }
 
