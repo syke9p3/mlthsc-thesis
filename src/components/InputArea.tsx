@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { TbListTree } from "react-icons/tb";
 import { CgSpinner } from "react-icons/cg";
-import { getWordCount } from "../utils";
+import { getWordCount } from "../utils/utils";
 import { useState } from "react";
 
 const examples = [
@@ -47,14 +47,14 @@ const InputArea = ({ handleSubmit, isPending }: InputSectionProps) => {
 
 
     return (
-        <section className="py-6 px-2 ">
-            <form className="px-6 py-3 border-2=x border-dashed=x">
+        <section className="py-6 px-2  h-full">
+            <form className="px-6 py-3 border-2=x border-dashed=x ">
                 <h1 className="mt-1 mb-3 text-center font-bold text-xl ">Input Hate Speech Post</h1>
                 <div className="relative border bg-white">
                     <textarea value={inputText}
                         placeholder="Enter hate speech text here"
                         onChange={handleInputChange}
-                        className={twMerge(`px-4 pt-4 pb-6 text-sm bg-[#EBEFF5]=x bg-white resize-none w-full  min-h-[400px] focus:outline-none`, `${isValidInput || wordCount === 0 ? 'outline-teal-500 focus:outline-teal-500' : 'outline-red-500 focus:outline-red-500'}`)}
+                        className={twMerge(`px-4 pt-4 pb-6 text-sm bg-[#EBEFF5]=x bg-white resize-none w-full  min-h-[400px] h-full focus:outline-none`, `${isValidInput || wordCount === 0 ? 'outline-teal-500 focus:outline-teal-500' : 'outline-red-500 focus:outline-red-500'}`)}
                     />
                     <div className="px-4 py-3  justify-between items-center grid grid-cols-1 sm:flex gap-2">
                         <select className="text-sm px-6 py-4 rounded-md cursor-pointer order-3 sm:order-1"

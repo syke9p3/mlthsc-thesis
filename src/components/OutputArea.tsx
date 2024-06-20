@@ -1,40 +1,10 @@
 import { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { IoIosSave } from 'react-icons/io';
+import { addSavedPost, deleteAllSavedPost } from '../api/api';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import toast, { Toaster } from 'react-hot-toast';
 
-const labelTocolor = (label: string, probability: number): string => {
-
-    if (probability < 50) return '#CBD5E1'
-
-    let color = ''
-
-    switch (label) {
-        case 'Age':
-            color = '#EF4444';
-            break;
-        case 'Gender':
-            color = '#F97316';
-            break;
-        case 'Physical':
-            color = '#FEB019';
-            break;
-        case 'Race':
-            color = '#14B8A6';
-            break;
-        case 'Religion':
-            color = '#2563EB';
-            break;
-        case 'Others':
-            color = '#4B5563';
-            break;
-        default:
-            color = '';
-            break;
-    }
-
-    return color;
-
-}
 
 interface Result {
     text: string;
@@ -42,6 +12,27 @@ interface Result {
 }
 
 const OutputArea = ({ text, labels }: Result) => {
+
+    const queryClient = useQueryClient();
+
+    const doSavePost = useMutation({
+        mutationFn: addSavedPost,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['savedPosts'] })
+            toast.success('Post saved successfully');
+        },
+        onError: (error) => {
+            console.log('error:', error.message);
+            toast.error('Post failed to save');
+
+        }
+    })
+
+
+    const handleSavePost = ({ text, labels }: Result) => {
+        doSavePost.mutate({ text, labels })
+    }
+
 
     const [processedLabels, setProcessedLabels] = useState<{ name: string; probability: number; }[]>([]);
 
@@ -88,20 +79,24 @@ const OutputArea = ({ text, labels }: Result) => {
     }
 
     return (
-
         <section className="py-6 px-2 ">
+            <Toaster position='top-right' />
             <div className="max w-lg my-6 mx-6">
                 <div className='mb-6'>
-                    <h3 className="text-xl font-bold my-2  text-center">Text</h3>
+                    <h3 className="text-xl font-bold my-2  text-center opacity-0">Text</h3>
                     <div className='bg-[#EBEFF5] px-2 py-3 rounded-md max-h-[100px] overflow-scroll  text-center'>
                         <h3 className='text-xs  text-[#22242B]/80  text-ellipsis'>{text}</h3>
                     </div>
                 </div>
-                <div className='grid gap-2'>
+
+                <div className='grid gap-2 mb-6'>
                     <div className='flex justify-between items-center'>
                         <h3 className="text-xl font-bold my-2">Labels</h3>
-                        <button className='bg-[#22242B] text-white size-8 animate hover:bg-teal-500 hover:text-white text-xs shadow-md rounded-md grid place-items-center'>
+                        <button
+                            onClick={() => { handleSavePost({ text, labels }) }}
+                            className='bg-[#22242B] text-white px-3 py-2 animate hover:bg-teal-500 hover:text-white text-xs font-bold shadow-md rounded-md flex gap-2'>
                             <IoIosSave size={18} />
+                            Save
                         </button>
                     </div>
                     {/* @ts-ignore */}
@@ -110,8 +105,22 @@ const OutputArea = ({ text, labels }: Result) => {
                     </div>
                 </div>
 
-            </div>
-        </section>
+                <div className=''>
+                    <h3 className="text-xl font-bold my-2 ">Recent</h3>
+                    <div className='space-y-2'>
+                        <div className='bg-[#EBEFF5] px-2 py-3 rounded-md max-h-[100px] overflow-scroll'>
+                            <h3 className='text-xs text-[#22242B]/80  text-ellipsis'>{text}</h3>
+                        </div>
+                        <div className='bg-[#EBEFF5] px-2 py-3 rounded-md max-h-[100px] overflow-scroll'>
+                            <h3 className='text-xs text-[#22242B]/80  text-ellipsis'>{text}</h3>
+                        </div>
+                        <div className='bg-[#EBEFF5] px-2 py-3 rounded-md max-h-[100px] overflow-scroll'>
+                            <h3 className='text-xs text-[#22242B]/80  text-ellipsis'>{text}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div >
+        </section >
 
     )
 }

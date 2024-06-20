@@ -1,22 +1,20 @@
 import { useState } from 'react'
 import InputArea from './InputArea'
 import OutputArea from './OutputArea'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import Container from './Container'
-import { fetchOutput } from '../api/api'
-
-interface Result {
-    text: string;
-    labels: { name: string; probability: string; }[];
-}
+import { fetchOutput, addSavedPost } from '../api/api'
+import { Result } from '../types/types'
 
 const Classifier = () => {
 
+    const queryClient = useQueryClient();
+
     const [result, setResult] = useState<Result>({ text: '', labels: [] });
 
-    const mutation = useMutation({
+    const doFetchOutput = useMutation({
         mutationFn: fetchOutput,
         onSuccess: (res) => {
             console.log('data:', res.data);
@@ -29,11 +27,12 @@ const Classifier = () => {
         }
     })
 
+
+
     const handleSubmit = (inputText: string) => {
         console.log('handleSubmit', inputText)
-        mutation.mutate(inputText)
+        doFetchOutput.mutate(inputText)
     }
-
 
     return (
         <>
@@ -57,7 +56,7 @@ const Classifier = () => {
             <Container>
                 <div className='grid md:grid-cols-12'>
                     <div className='md:col-span-8'>
-                        <InputArea handleSubmit={handleSubmit} isPending={mutation.isPending} />
+                        <InputArea handleSubmit={handleSubmit} isPending={doFetchOutput.isPending} />
                     </div>
                     <div className='md:col-span-4'>
                         <OutputArea text={result.text} labels={result.labels} />
