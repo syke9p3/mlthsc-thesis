@@ -7,9 +7,57 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link href="./assets/mlthsc-fav.svg" rel="icon" type="image/x-icon" />
+    <script type="module">
+        // import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@1.3.0/dist/index.min.js";
+
+        // const gradio = async () => {
+        //     try {
+        //         const client = await Client.connect("syke9p3/bert-tagalog-base-uncased-part-of-speech-tagger");
+        //         const result = await client.predict("/predict", {
+        //             test_sentence: "Hello worlds sd sd sd",
+        //         });
+        //         console.log(result.data);
+        //     } catch (error) {
+        //         console.log("Error: ", error)
+        //     }
+        // }
+
+        // gradio();
+
+
+    </script>
+
+    <!-- <script src="scripts/onnx.js" type="module"></script> -->
+    <script type="module">
+
+        import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.6.0";
+
+        env.allowLocalModels = false;
+
+        console.log("loading onnx.js... ")
+
+        const status = document.getElementById("status");
+
+        const task = 'text-classification';
+        const model = 'syke9p3/bert-multilabel-tagalog-hate-speech-classifier';
+        const classifier = await pipeline(task, model);
+        const input = "parang ewan na arabo naman to"
+        const output = await classifier(input, { topk: 6 });
+
+        console.log(input)
+        console.log(output)
+
+
+    </script>
+
+
 </head>
 
 <body>
+    <div>
+        <p id="status"></p>
+
+    </div>
     <!-- Header Section -->
     <header>
         <nav class="flex">
