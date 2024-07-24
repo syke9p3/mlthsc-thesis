@@ -71,6 +71,17 @@ Hate speech promotes hatred, discrimination, prejudice, or violence against indi
 | Validation Set | 212             | 10%        |
 | Testing Set    | 633             | 30%        |
 
+# Training
+
+ The BERT Tagalog POS Tagger were trained using PyTorch library with the following hyperparameters set:
+
+| **Hyperparamter**   |  **Value** |   
+|---------------- |---------
+| Batch Size      |  8 |
+| Training Epoch  |  5 |
+| Learning-rate   |  2e-5 |
+| Optimizer       |  Adam |
+
 ### 🔢 Results
 
 The testing set containing 633 annotated hate speech data used to analyze performance of the model in its ability to classify the hate speech input according to different label in terms of Precision, Recall, F-Measure, and overall hamming loss.
