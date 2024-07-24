@@ -1,18 +1,23 @@
 # Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)
 
+
+> [!IMPORTANT]
+> #### Announcement
+> **A rework of this project's JS-based web app has been moved to** [https://github.com/syke9p3/retrain-mlthsc](https://github.com/syke9p3/retrain-mlthsc)
+
+## 📋 About the Project
+
 This repository contains source files for the thesis titled, **Multilabel Classification of Tagalog Hate Speech using Bidirectional Encoder Representations from Transformers (BERT)**, at the Polytechnic University of the Philippines. The model classifies a hate speech according to one or more categories: Age, Gender, Physical, Race, Religion, and Others. 
 
 Hate speech encompasses expressions and behaviors that promote hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, with consequences ranging from physical harm to psychological distress, making it a critical issue in today's society. 
 
 Bidirectional Encoder Representations from Transformers (BERT) is pre-trained deep learning model used in this study that uses a transformer architecture to generate word embeddings, capturing both left and right context information, and can be fine-tuned for various natural language processing tasks. For this project, we fine-tuned [Jiang et. al.'s pre-trained BERT Tagalog Base Uncased model](https://huggingface.co/GKLMIP/bert-tagalog-base-uncased) in the task of multilabel hate speech classification.
 
-## 👥 Proponents
+### 👥 Proponents
 - Saya-ang, Kenth G. ([@syke9p3](https://github.com/syke9p3))
 - Gozum, Denise Julianne S. ([@Xenoxianne](https://github.com/Xenoxianne))
 - Hamor, Mary Grizelle D. ([@mnemoria](https://github.com/mnemoria))
 - Mabansag, Ria Karen B. ([@riavx](https://github.com/riavx))
-
-## 📋 About the Thesis
 
 ### 📄 Abstract
 Hate speech promotes hatred, discrimination, prejudice, or violence against individuals or groups based on specific attributes, leading to physical and psychological harm. This study addresses the prevalence of hate speech on social media by proposing a Tagalog hate speech multilabel classification model. Using a fine-tuned Bidirectional Encoder Representations from Transformers (BERT) model, the study classifies hate speech into categories such as Age, Gender, Physical, Race, Religion, and Others. Analyzing 2,116 manually annotated social media posts from Facebook, Reddit, and Twitter, the model achieved varying precision, recall, and f-measure scores across categories, with an overall hamming loss of 3.79%.
