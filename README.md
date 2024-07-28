@@ -2,7 +2,6 @@
 
 
 > [!IMPORTANT]
-> #### Announcement
 > **A rework of this project's JS-based web app (v2) has been moved to** [Github: syke9p3/retrain-mlthsc](https://github.com/syke9p3/retrain-mlthsc)
 
 ## 📋 About the Project
