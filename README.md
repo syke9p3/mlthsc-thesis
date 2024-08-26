@@ -4,7 +4,7 @@
 > [!IMPORTANT]
 > A rework of this project's JS-based web app (v2) has been moved to [syke9p3/retrain-mlthsc](https://github.com/syke9p3/retrain-mlthsc) (07-25-2024)
 > 
->  (v3) [syke9p3/mlthsc-react](https://github.com/syke9p3//mlthsc-react) (08-27-2024)
+> Reworked (again!) in React + Vite + Typescript (v3) [syke9p3/mlthsc-react](https://github.com/syke9p3//mlthsc-react) (08-27-2024)
 
 ## 📋 About the Project
 
