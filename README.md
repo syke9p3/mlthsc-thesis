@@ -2,8 +2,9 @@
 
 
 > [!IMPORTANT]
-> A rework of this project's JS-based web app (v2) has been moved to [Github: syke9p3/retrain-mlthsc](https://github.com/syke9p3/retrain-mlthsc)
->  (v3) [Github: syke9p3/retrain-mlthsc](https://github.com/syke9p3/retrain-mlthsc) (08-27-2024)
+> A rework of this project's JS-based web app (v2) has been moved to [syke9p3/retrain-mlthsc](https://github.com/syke9p3/retrain-mlthsc) (07-25-2024)
+> 
+>  (v3) [syke9p3/mlthsc-react](https://github.com/syke9p3//mlthsc-react) (08-27-2024)
 
 ## 📋 About the Project
 
